@@ -171,6 +171,102 @@ class Main {
     }
 }
 
+first non repeating character::
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        String a=sc.nextLine();
+        String lower=a.toLowerCase();
+        StringBuilder reuslt=new StringBuilder();
+        int[] ans=new int[26];
+        for(int i=0;i<lower.length();i++){
+            char c=lower.charAt(i);
+            if(c>='a' && c<='z'){
+                int index=c-'a';
+                ans[index]++;
+            }
+        }
+        for(int i=0;i<a.length();i++){
+            char ch=lower.charAt(i);
+            if(ch>='a' && ch<='z' && ans[ch-'a']==1){
+                System.out.print(a.charAt(i));
+                return;
+            }
+        }
+    }
+}
+
+
+duplicate and missing number::
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        int a=sc.nextInt();
+        int[] ans=new int[a];
+        for(int i=0;i<a;i++){
+            ans[i]=sc.nextInt();
+        }
+        int duplicate=-1;
+        HashSet<Integer> set=new HashSet<>();
+        for(int i=0;i<a;i++){
+            if(set.contains(ans[i])){
+                duplicate=ans[i];
+            }
+            set.add(ans[i]);
+        }
+        int original=(a*(a+1))/2;
+        int sum=0;
+        for(int i=0;i<a;i++){
+            sum+=ans[i];
+        }
+        int missing=original-sum+duplicate;
+        System.out.print(duplicate+" "+missing);
+    }
+}
+
+
+sum of consecutive prime numbers::
+
+import java.util.*;
+class Main {
+    public static boolean isPrime(int m){
+        boolean isPrime=true;
+        if(m<=1){
+            return false;
+        }
+        for(int i=2;i<m;i++){
+            if(m%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int sum=m+n;
+        ArrayList<Integer> ans=new ArrayList<>();
+        for(int i=0;ans.size()<sum+3;i++){
+            if(isPrime(i)){
+                ans.add(i);
+            }
+            else{
+                continue;
+            }
+        }
+        int add=0;
+        add+=ans.get(m-1)+ans.get(m)+ans.get(m+1);
+        System.out.print(add);
+    }
+}
+
+
+
 
 
 
