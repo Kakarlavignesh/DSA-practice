@@ -265,6 +265,23 @@ class Main {
     }
 }
 
+find the largest altitude::
+
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int n=gain.length;
+        int max=0;
+        int diff=0;
+        int first=0;
+        for(int i=0;i<n;i++){
+            diff=first+gain[i];
+            first=diff;
+            max=Math.max(diff,max);
+        }
+        return max;
+    }
+}
+
 
 
 
