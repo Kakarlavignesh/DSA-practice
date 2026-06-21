@@ -364,6 +364,29 @@ class Solution {
     }
 }
 
+Max sum in the configuration:
+
+class Solution {
+    int maxSum(int[] arr) {
+        int n=arr.length;
+        int arrSum=0;
+        for(int i=0;i<n;i++){
+            arrSum+=arr[i];
+        }
+        int currVal=0;
+        for(int i=0;i<n;i++){
+            currVal+=arr[i]*i;
+        }
+        int maxVal=currVal;
+        for(int i=1;i<n;i++){
+            currVal=currVal+arrSum-n*arr[n-i];
+            maxVal=Math.max(currVal,maxVal);
+        }
+        return maxVal;
+    }
+}
+
+
 
 
 
