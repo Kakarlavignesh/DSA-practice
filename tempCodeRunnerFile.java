@@ -424,7 +424,53 @@ class Main {
     }
 }
 
+remove adjacent duplicates::
 
+    import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        String s=sc.nextLine();
+        Stack <Character> stack=new Stack<>();
+        int n=s.length();
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            if(!stack.empty() && ch==stack.peek()){
+                stack.pop();
+            }
+            else{
+                stack.push(ch);
+            }
+        }
+        StringBuilder ans=new StringBuilder();
+        for(int i=0;i<stack.size();i++){
+            ans.append(stack.get(i));
+        }
+        System.out.print(ans.toString());
+    }
+}
+
+number where it is higher than the next number::
+
+    import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int index=-1;
+        for(int i=0;i<n-1;i++){
+            if(arr[i]>arr[i+1]){
+                index=i;
+                break;
+            }
+        }
+        System.out.print(index);
+    }
+}
 
 
 
