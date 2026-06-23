@@ -472,6 +472,77 @@ class Main {
     }
 }
 
+Diagnol sum of matrix:
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[][] arr={{1,2,3},{4,5,6},{7,8,9}};
+        int n=arr.length;
+        int m=arr[0].length;
+        int psum=0;
+        int ssum=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(i==j){
+                    psum+=arr[i][j];
+                }
+                if(i+j==2){
+                    ssum+=arr[i][j];
+                }
+            }
+        }
+        System.out.println(psum);
+        System.out.println(psum);
+    }
+}
+Transpose of a matrix:
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[][] arr={{1,2,3},{4,5,6}};
+        int m=arr.length;
+        int n=arr[0].length;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                System.out.print(arr[j][i]+" ");
+            }
+            System.out.println();
+        }
+ 
+    }
+}
+reverse a matrix into 90 degrees:
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[][] arr={{1,2,3},{4,5,6},{7,8,9}};
+        int n=arr.length;
+        // int m=arr[0].length;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                int temp=arr[i][j];
+                arr[i][j]=arr[j][i];
+                arr[j][i]=temp;
+            }
+        }
+        int temp=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n/2;j++){
+                temp=arr[i][j];
+                arr[i][j]=arr[i][n-1-j];
+                arr[i][n-1-j]=temp;
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+ 
+    }
+}
+
 
 
 
