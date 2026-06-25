@@ -590,6 +590,47 @@ class Main {
     }
 }
 
+COunt the max no of vowels in the all sub strings of length k...
+
+    // Input:
+// s = "abciiidef"
+// k = 3
+
+// Output:
+// 3
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s=sc.nextLine();
+        int n=s.length();
+        int k=3;
+        int count=0;
+        int maxCount=0;
+        for(int i=0;i<=n-k;i++){
+            for(int j=i;j<i+k;j++){
+                char ch=s.charAt(j);
+            if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u'){
+                    count++;
+                }
+                }
+                maxCount=Math.max(count,maxCount);
+                count=0;
+            }
+        System.out.print(maxCount);
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
