@@ -621,6 +621,52 @@ class Main {
         System.out.print(maxCount);
     }
 }
+// Check if the first two characters of the string is uppercasse and the next 4 char is numbers and the next 2 is upper case....
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int n=s.length();
+        int x=2;
+        int y=6;
+        int z=n;
+        boolean isvalid=true;
+        if(n!=8){
+            System.out.print("invalid");
+            return;
+        }
+        for(int i=0;i<x;i++){
+            char ch=s.charAt(i);
+            if(!(ch>='A' && ch<='Z')){
+                isvalid=false;
+                break;
+            }
+        }
+        for(int i=x;i<y;i++){
+            char ch=s.charAt(i);
+            if(!(ch>='0' && ch<='9')){
+                isvalid=false;
+                break;
+            }
+        }
+        for(int i=y;i<n;i++){
+            char ch=s.charAt(i);
+            if(!(ch>='A' && ch<='Z')){
+                isvalid=false;
+                break;
+            }
+        }
+        System.out.print(isvalid);
+    }
+}
+
+
+
+
+
+
 
 
 
