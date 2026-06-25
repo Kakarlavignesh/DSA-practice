@@ -715,8 +715,6 @@ class Main {
 
 // print the letter with the freq in order
 
-// Hello World Java
-
 import java.util.*;
 class Main {
     public static void main(String[] args) {
@@ -743,6 +741,35 @@ class Main {
     }
 }
 
+// Input
+// aaabbcccc
+// Output
+// a3b2c4
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a=sc.nextLine();
+        int n=a.length();
+        int count=1;
+        StringBuilder ans = new StringBuilder();
+        for(int i=1;i<n;i++){
+            char ch=a.charAt(i);
+            if(a.charAt(i)==a.charAt(i-1)){
+                count++;
+            }
+            else{
+                ans.append(a.charAt(i-1));
+                ans.append(count);
+                count=1;
+            }
+        }
+        ans.append(a.charAt(n-1));
+        ans.append(count);
+        System.out.print(ans);
+    }
+}
 
 
 
