@@ -662,6 +662,87 @@ class Main {
     }
 }
 
+// check if there is atleast 1 , upper,lower,number,symbol..
+
+// Welcome@123
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s=sc.nextLine();
+        int n=s.length();
+        int upper=0;
+        int lower=0;
+        int number=0;
+        int symbol=0;
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            if(ch>='0' && ch<='9'){
+                number++;
+            }
+            else if(ch>='A' && ch<='Z'){
+                upper++;
+            }
+            else if(ch>='a' && ch<='z'){
+                lower++;
+            }
+            else{
+                symbol++;
+            }
+        }
+        if(upper>=1 && lower>=1 && number>=1 && symbol>=1){
+            System.out.print("Strong");
+            return;
+        }
+        System.out.print("Weak");
+    }
+}
+
+// write the two names into an emain::
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        String a=sc.nextLine();
+        String b=sc.nextLine();
+        String x=a.toLowerCase();
+        String y=b.toLowerCase();
+        System.out.print(x+"."+y+"@company.com");
+    }
+}
+
+// print the letter with the freq in order
+
+// Hello World Java
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a=sc.nextLine();
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(int i=0;i<a.length();i++){
+            char ch=a.charAt(i);
+            if(map.containsKey(ch)){
+                map.put(ch,map.getOrDefault(ch,0)+1);
+            }
+            else{
+            map.put(ch,1);
+            }
+        }
+        HashSet<Character> set=new HashSet<>();
+        for(int i=0;i<a.length();i++){
+            char ch=a.charAt(i);
+            if(!set.contains(ch)){
+            System.out.println(ch+" "+map.get(ch));
+            }
+            set.add(ch);
+        }
+    }
+}
+
 
 
 
