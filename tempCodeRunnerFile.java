@@ -860,6 +860,64 @@ class Main {
     }
 }
 
+// No of swaps required to transform the array to array2...
+
+import java.util.*;
+// 5
+// 20 40 29 10 98
+// 10 98 40 20 29
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+        int[] arr=new int[n];
+        int[] arr2=new int[m];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0;i<m;i++){
+            arr2[i]=sc.nextInt();
+        }
+        if(n!=m){
+            System.out.print("-1");
+        }
+        int[] x=Arrays.copyOf(arr,n);
+        int[] y=Arrays.copyOf(arr2,m);
+        Arrays.sort(x);
+        Arrays.sort(y);
+        if(!Arrays.equals(x,y)){
+            System.out.print("-1");
+        }
+        int swaps=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]==arr2[i]){
+                continue;
+            }
+            int j=i+1;
+            while(j<n && arr[j]!=arr2[i]){
+                j++;
+            }
+            while(j>i){
+                int temp=arr[j];
+                arr[j]=arr[j-1];
+                arr[j-1]=temp;
+                swaps++;
+                j--;
+            }
+        }
+        System.out.print(swaps);
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
