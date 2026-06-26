@@ -817,11 +817,48 @@ class Main {
     }
 }
 
-
-
-
-
-
+// check if two strings are isomorphic::
+    
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s=sc.nextLine();
+        String t=sc.nextLine();
+        int n=s.length();
+        int m=t.length();
+        // egg
+        // add
+        if(n!=m){
+            System.out.print("No");
+        }
+        HashMap<Character,Character> map=new HashMap<>();
+        HashMap<Character,Character> map2=new HashMap<>();
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            char ch2=t.charAt(i);
+            if(map.containsKey(ch)){
+                if(map.get(ch)!=ch2){
+                    System.out.print("No");
+                    return;
+                }
+            }
+            else{
+                map.put(ch,ch2);
+            }
+            if(map2.containsKey(ch2)){
+                if(map2.get(ch2)!=ch){
+                    System.out.print("No");
+                    return;
+                }
+            }
+            else{
+                map2.put(ch2,ch);
+            }
+        }
+        System.out.print("yes");
+    }
+}
 
 
 
