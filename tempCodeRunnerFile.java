@@ -910,6 +910,33 @@ class Main {
     }
 }
 
+// MaxProduct SUbarray::
+
+// -2  3  -4
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int maxProduct=arr[0];
+        int minProduct=arr[0];
+        int answer=arr[0];
+        for(int i=1;i<n;i++){
+            if(arr[i]<0){
+                int temp=maxProduct;
+                maxProduct=minProduct;
+                minProduct=temp;
+            }
+            maxProduct=Math.max(arr[i],arr[i]*maxProduct);
+            minProduct=Math.min(arr[i],arr[i]*minProduct);
+        }
+        System.out.print(maxProduct);
+    }
+}
 
 
 
