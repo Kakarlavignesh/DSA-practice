@@ -771,7 +771,30 @@ class Main {
     }
 }
 
-
+// Find the first non repeating character::
+    
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        // swiss
+        Scanner sc = new Scanner(System.in);
+        String s=sc.nextLine();
+        int n=s.length();
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+        }
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            if(map.get(ch)==1){
+                System.out.print(ch);
+                return;
+            }
+        }
+        System.out.print("-1");
+    }
+}
 
 
 
