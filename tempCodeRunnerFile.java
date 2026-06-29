@@ -938,7 +938,47 @@ class Main {
     }
 }
 
+highest freq of the word...//
 
+    import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String sentence = sc.nextLine();
+
+        String[] words = sentence.split(" ");
+
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
+
+        // Count frequency
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+
+            if (map.containsKey(word)) {
+                map.put(word, map.get(word) + 1);
+            } else {
+                map.put(word, 1);
+            }
+        }
+
+        // Find maximum frequency
+        int max = 0;
+        for (String key : map.keySet()) {
+            if (map.get(key) > max) {
+                max = map.get(key);
+            }
+        }
+
+        // Print all words with maximum frequency
+        for (String key : map.keySet()) {
+            if (map.get(key) == max) {
+                System.out.print(key + " " + map.get(key) + " ");
+            }
+        }
+    }
+}
 
 
 
