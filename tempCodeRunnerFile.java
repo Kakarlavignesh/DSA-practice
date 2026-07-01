@@ -1209,6 +1209,72 @@ class ArrayQueue {
     }
 }
 
+// Implement stack using queue::
+
+class QueueStack {
+    Queue<Integer> q;
+    public QueueStack() {
+        q=new LinkedList<>();
+    }
+
+    public void push(int x) {
+       q.offer(x);
+       int size=q.size();
+       for(int i=0;i<size-1;i++){
+        q.offer(q.poll());
+       }
+    }
+
+    public int pop() {
+      return q.poll();
+    }
+
+    public int top() {
+        return q.peek();
+    }
+
+    public boolean isEmpty() {
+        return q.isEmpty();
+    }
+}
+
+// Impleemnt queue using stack::
+
+class StackQueue {
+    Stack<Integer> s1;
+    Stack<Integer> s2;
+    public StackQueue() {
+        s1=new Stack<>();
+        s2=new Stack<>();
+    }
+
+    public void push(int x) {
+       s1.push(x);
+    }
+
+    public int pop() {
+      if(s2.isEmpty()){
+        while(!s1.isEmpty()){
+            s2.push(s1.pop());
+        }
+      }
+      return s2.pop();
+    }
+
+    public int peek() {
+        if(s2.isEmpty()){
+            while(!s1.isEmpty()){
+                s2.push(s1.pop());
+            }
+        }
+        return s2.peek();
+    }
+
+    public boolean isEmpty() {
+        return s1.isEmpty() && s2.isEmpty();
+    }
+}
+
 
 
 
