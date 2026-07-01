@@ -1135,6 +1135,79 @@ class Solution{
         return left;
     }
 }
+// Implement stack using arrays::
+
+class ArrayStack {
+    int[] arr= new int[100];
+    int top;
+    public ArrayStack() {
+        top=-1;
+    }
+
+    public void push(int x) {
+       top++;
+       arr[top]=x;
+    }
+
+    public int pop() {
+      int value=arr[top];
+      top--;
+      return value;
+    }
+
+    public int top() {
+        int value=arr[top];
+        return value;
+    }
+
+    public boolean isEmpty() {
+        return top==-1;
+    }
+}
+
+// Implement queue using arrays::
+
+class ArrayQueue {
+    int[] arr=new int[100];
+    int front;
+    int rear;
+    public ArrayQueue() {
+        front=-1;
+        rear=-1;
+    }
+
+    public void push(int x) {
+       if(front==-1){
+        front=0;
+        rear=0;
+       }
+       else{
+        rear++;
+       }
+       arr[rear]=x;
+    }
+
+    public int pop() {
+      int value=arr[front];
+      if(front==rear){
+        front=-1;
+        rear=-1;
+      }
+      else{
+        front++;
+      }
+      return value;
+    }
+
+    public int peek() {
+        int value=arr[front];
+        return value;
+    }
+
+    public boolean isEmpty() {
+        return front==-1;
+    }
+}
 
 
 
