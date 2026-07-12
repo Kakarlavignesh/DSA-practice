@@ -1350,6 +1350,29 @@ class Solution{
         return -1;
     }
 
+    import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,2,3,2,1,2,1,3,3,4};
+        int n=arr.length;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+        }
+        int max=0;
+        for(int i=0;i<n;i++){
+            if(map.get(arr[i])>max){
+                max=map.get(arr[i]);
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(map.containsKey(arr[i])){
+                System.out.println(arr[i]+" "+map.get(arr[i]));
+                map.remove(arr[i]);
+            }
+        }
+    }
+}
 
 
 
