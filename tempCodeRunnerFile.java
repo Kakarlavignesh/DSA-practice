@@ -1374,7 +1374,32 @@ class Main {
     }
 }
 
-
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String s="programming";
+        int n=s.length();
+        // char ch=s.toCharArray();
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+        }
+        int max=0;
+        for(Map.Entry<Character,Integer> entry:map.entrySet()){
+            if(entry.getValue()>max){
+                max=entry.getValue();
+            }
+        }
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            if(map.containsKey(ch)){
+                System.out.println(ch+" "+map.get(ch));
+                map.remove(ch);
+            }
+        }
+    }
+}
 
 
 
