@@ -1597,7 +1597,27 @@ LC 209..
         return maxLen;
     }
 }
+Lc 3..//
 
+    class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int n=s.length();
+        HashSet<Character> set=new HashSet<>();
+        int maxSize=0;
+        int count=0;
+        int left=0;
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            while(set.contains(ch)){
+                set.remove(s.charAt(left));
+                left++;
+            }
+            set.add(ch);
+            maxSize=Math.max(maxSize,i-left+1);
+        }
+        return maxSize;
+    }
+}
 
 
 
