@@ -102,3 +102,61 @@ class Main {
         }
     }
 }
+
+MergeSort...
+
+import java.util.*;
+class Main {
+    public static void mergeSort(int[] arr,int low,int high){
+        if(low<high){
+            int mid=(low+high)/2;
+            mergeSort(arr,low,mid);
+            mergeSort(arr,mid+1,high);
+            merge(arr,low,mid,high);
+        }
+    }
+    public static void merge(int[] arr,int low,int mid,int high){
+        int n1=mid-low+1;
+        int n2=high-mid;
+        int[] lArr=new int[n1];
+        int[] rArr=new int[n2];
+        for(int i=0;i<n1;i++){
+            lArr[i]=arr[low+i];
+        }
+        for(int i=0;i<n2;i++){
+            rArr[i]=arr[mid+1+i];
+        }
+        int x=0;
+        int y=0;
+        int k=low;
+        while(x<n1 && y<n2){
+            if(lArr[x]<=rArr[y]){
+                arr[k]=lArr[x];
+                x++;
+            }
+            else{
+                arr[k]=rArr[y];
+                y++;
+            }
+            k++;
+        }
+        while(x<n1){
+            arr[k]=lArr[x];
+            x++;
+            k++;
+        }
+        while(y<n2){
+            arr[k]=rArr[y];
+            y++;
+            k++;
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr={5,4,3,2,1};
+        int n=arr.length;
+        mergeSort(arr,0,n-1);
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
