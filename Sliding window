@@ -15,3 +15,28 @@ class Main {
         System.out.println(ans);
     }
 }
+
+Highest sum of 3 window..
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={3,4,5,2,1};
+        int n=arr.length;
+        int l=0;
+        int ans=0;
+        int sl=3;
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            ans+=arr[i];
+            if(i-l==sl){
+                ans-=arr[l];
+                l++;
+            }
+            if(i-l+1==sl){
+                max=Math.max(max,ans);
+            }
+        }
+        System.out.println(max);
+    }
+}
