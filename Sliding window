@@ -40,3 +40,25 @@ class Main {
         System.out.println(max);
     }
 }
+
+Highest sum of 3 window..(2nd model)..
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={3,4,5,2,1};
+        int n=arr.length;
+        int l=0;
+        int ans=0;
+        int k=3;
+        for(int i=0;i<k;i++){
+            ans+=arr[i];
+        }
+        int max=ans;
+        for(int i=k;i<n;i++){
+            ans=ans+arr[i]-arr[i-k];
+            max=Math.max(ans,max);
+        }
+        System.out.println(max);
+    }
+}
