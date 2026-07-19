@@ -62,3 +62,31 @@ class Main {
         System.out.println(max);
     }
 }
+
+1876 leetcode..
+
+class Solution {
+    public int countGoodSubstrings(String s) {
+        int n=s.length();
+        HashMap <Character,Integer> hm=new HashMap<>();
+        int ans=0;
+        int l=0;
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+            // int ans=0;
+            if(i-l==3){
+                char tch=s.charAt(l);
+                hm.put(tch,hm.get(tch)-1);
+                if(hm.get(tch)==0){
+                    hm.remove(tch);
+                }
+                l++;
+            }
+            if(hm.size()==3){
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
