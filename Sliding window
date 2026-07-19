@@ -195,3 +195,35 @@ class Solution {
         return max;
     }
 }
+leetcode 2024..
+
+class Solution {
+    public int maxConsecutiveAnswers(String answerKey, int k) {
+        int n=answerKey.length();
+        int l=0;
+        int max=0;
+        int countT=0;
+        int countF=0;
+        for(int r=0;r<n;r++){
+            char ch=answerKey.charAt(r);
+            if(ch=='T'){
+                countT++;
+            }
+            else{
+                countF++;
+            }
+            while(Math.min(countF,countT)>k){
+                char tch=answerKey.charAt(l);
+                if(tch=='F'){
+                    countF--;
+                }
+                else{
+                    countT--;
+                }
+                l++;
+            }
+            max=Math.max(max,r-l+1);
+        }
+        return max;
+    }
+}
