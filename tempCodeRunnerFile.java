@@ -1724,7 +1724,24 @@ class WeekDay {
     }
 }
 
-
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // ABCD
+        // ACBD
+        String s=sc.nextLine();
+        String t=sc.nextLine();
+        int n=s.length();
+        String k=s+s;
+        if(k.contains(t)){
+            System.out.print("yes");
+        }
+        else{
+            System.out.print("No");
+        }
+    }
+}
 
 
 
