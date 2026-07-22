@@ -1743,7 +1743,30 @@ class Main {
     }
 }
 
-
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        String a=sc.nextLine();
+        String lower=a.toLowerCase();
+        StringBuilder reuslt=new StringBuilder();
+        int[] ans=new int[26];
+        for(int i=0;i<lower.length();i++){
+            char c=lower.charAt(i);
+            if(c>='a' && c<='z'){
+                int index=c-'a';
+                ans[index]++;
+            }
+        }
+        for(int i=0;i<a.length();i++){
+            char ch=lower.charAt(i);
+            if(ch>='a' && ch<='z' && ans[ch-'a']==1){
+                System.out.print(a.charAt(i));
+                return;
+            }
+        }
+    }
+}
 
 
 
