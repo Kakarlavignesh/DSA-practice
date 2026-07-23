@@ -74,3 +74,122 @@ class Solution {
         return true;
     }
 }
+class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode a=headA;
+        ListNode b=headB;
+        while(a!=b){
+            if(a==null){
+                a=headB;
+            }
+            else{
+                a=a.next;
+            }
+            if(b==null){
+                b=headA;
+            }
+            else{
+                b=b.next;
+            }
+        }
+        return a;
+    }
+}
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow=head;
+        ListNode fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                ListNode p1=head;
+                ListNode p2=slow;
+                while(p1!=p2){
+                    p1=p1.next;
+                    p2=p2.next;
+                }
+                return p2;
+            }
+        }
+        return null;
+    }
+}
+
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        // if(head==null){
+        //     return false;
+        // }
+        ListNode slow=head;
+        ListNode fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+    }
+}    
+
+class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode dummy=new ListNode(0);
+        ListNode tail=dummy;
+        while(list1!=null && list2!=null){
+            if(list1.val<list2.val){
+                tail.next=list1;
+                list1=list1.next;
+                tail=tail.next;
+            }
+            else{
+                tail.next=list2;
+                list2=list2.next;
+                tail=tail.next;
+            }
+        }
+        if(list1!=null){
+            tail.next=list1;
+            tail=tail.next;
+        }
+        else{
+            tail.next=list2;
+            tail=tail.next;
+        }
+        return dummy.next;
+    }
+}
+
+class Solution {
+    public ListNode reverse(ListNode head){
+        ListNode curr=head;
+        ListNode prev=null;
+        while(curr!=null){
+            ListNode temp=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=temp;
+        }
+        return prev;
+    }
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        head=reverse(head);
+        ListNode temp=head;
+        if(n==1){
+            head=head.next;
+        }
+        else{
+            for(int i=1;i<n-1;i++){
+                temp=temp.next;
+            }
+            if(temp.next!=null){
+                temp.next=temp.next.next;
+            }
+        }
+        head=reverse(head);
+        return head;
+    }
+}
