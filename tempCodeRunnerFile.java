@@ -1841,7 +1841,41 @@ class Solution {
         return max;
     }
 }
+import java.util.*;
 
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<Integer> arr = new ArrayList<>();
+
+        arr.add(1);
+        arr.add(0);
+        arr.add(2);
+        arr.add(0);
+        arr.add(4);
+        arr.add(0);
+        arr.add(5);
+
+        int index = 0;
+
+        // Place all non-zero elements at the beginning
+        for (int i = 0; i < arr.size(); i++) {
+
+            if (arr.get(i) != 0) {
+                arr.set(index, arr.get(i));
+                index++;
+            }
+        }
+
+        // Fill the remaining positions with 0
+        while (index < arr.size()) {
+            arr.set(index, 0);
+            index++;
+        }
+
+        System.out.println(arr);
+    }
+}
 
 
 
