@@ -1876,7 +1876,35 @@ public class Main {
         System.out.println(arr);
     }
 }
-
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={3,3,3,4,2,1,1,4,4,4,1,1,2,2};
+        int n=arr.length;
+        LinkedHashMap<Integer,Integer> map=new LinkedHashMap<>();
+        List<Integer> ans=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+        }
+        while(n>0){
+            int max=0;
+            int val=0;
+            for(Map.Entry<Integer,Integer> entry:map.entrySet()){
+                if(entry.getValue()>max){
+                    max=entry.getValue();
+                    val=entry.getKey();
+                }
+            }
+                while(max>0){
+                    ans.add(val);
+                    max--;
+                }
+                n-=map.get(val);
+                map.put(val,0);
+            }
+        System.out.print(ans);
+    }
+}
 
 
 
