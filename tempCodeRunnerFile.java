@@ -1927,6 +1927,25 @@ class Solution {
         return n == 1;
     }
 }
+class Solution {
+    public int countBinarySubstrings(String s) {
+        int n=s.length();
+        int curr=1;
+        int prev=0;
+        int res=0;
+        for(int i=1;i<n;i++){
+            if(s.charAt(i)==s.charAt(i-1)){
+                curr++;
+            }
+            else{
+                res+=Math.min(prev,curr);
+                prev=curr;
+                curr=1;
+            }
+        }
+        return res+Math.min(prev,curr);
+    }
+}
 
 
 
